@@ -1,0 +1,76 @@
+/*Angel Tarensi*/
+
+/*Estils per modificar la distancia d'objectes majorment*/
+#particles-js {
+	height: 100vh; 
+	width: 100%;
+    position: fixed;
+    z-index: -1;
+}
+.principalBox{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	border: 1px solid #7289da;
+	margin:1px;
+}
+.box{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	border: 1px solid #00c0d4;
+	margin:1px;
+}
+.resultado{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	border: 1px solid #f04747;
+	margin:1px;
+}
+.container {
+	 height: auto;
+	 width: 98%;
+	 position: absolute;
+	 z-index: 99;
+}
+div.container:first-child{
+	margin-top: 0%;
+}
+div.container{
+	margin-top: 6%;
+}
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+	margin-top: 3%;
+}
+th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+th{
+	background-color: #7289da;
+	color: white;
+}
+.centro{
+	text-align: center;
+}
+.centrarBoton{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-left: 47%;
+	margin-top: 5%;
+}

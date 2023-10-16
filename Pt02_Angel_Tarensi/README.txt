@@ -1,0 +1,1 @@
+Tots els arxius .php/.html que no estiguin dins de carpetes(controlador/model/estils) son de vista.
