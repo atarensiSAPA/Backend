@@ -7,9 +7,10 @@ require_once 'model/model.php';
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">  
-	<link rel="stylesheet" href="estils/estils.css"> <!-- feu referència al vostre fitxer d'estils -->
+        <!--Boostrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!--CSS-->
+        <link rel="stylesheet" href="estils/estils.css" type="text/css">
 	<title>Paginació</title>
 </head>
 <body>
@@ -26,6 +27,8 @@ require_once 'model/model.php';
 				<option value="50"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 50) echo 'selected'; ?>>50</option>
 				<option value="100"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 100) echo 'selected'; ?>>100</option>
         	</select>
+			<input type="button" value="log-in" onclick="window.location.href='login.view.php'">
+			<input type="button" value="register" onclick="window.location.href='register.view.php'">
 			<section class="articles">
 				<ul>
 					<!--Mostrar els articles-->
