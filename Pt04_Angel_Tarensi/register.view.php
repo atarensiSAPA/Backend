@@ -1,8 +1,8 @@
 <?php
 //Angel Tarensi
 //trucar a les funcions següents
-require_once 'model/register.php';
-require_once 'controlador/register.php';
+require_once 'model/registerM.php';
+require_once 'controlador/registerC.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,8 @@ require_once 'controlador/register.php';
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <!--CSS-->
         <link rel="stylesheet" href="estils/estils.css" type="text/css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Register</title>
 </head>
 <body>
@@ -24,20 +26,27 @@ require_once 'controlador/register.php';
             </div>
             <div class="form-group">
                 <p>Email:</p>
-                <input type="text" name="username" placeholder="Username" id="email" required>
+                <input type="text" name="email" placeholder="email" id="email" required>
             </div>
             <div class="form-group">
                 <p>Password:</p>
-                <input type="password" name="password" placeholder="Password" required>                
+                <input type="password" name="password1" placeholder="Password" id="password1" required>                
             </div>
             <div class="form-group">
                 <p>Torna a introduir la password:</p>
-                <input type="password" name="password" placeholder="Password" id="password2" required>
+                <input type="password" name="password2" placeholder="Password" id="password2" required>
             </div>
-            <input type="submit" value="Register">
+            <input type="submit" value="Register" onclick="comprovacions()">
             <input type="button" value="login" onclick="window.location.href='login.view.php'">
             <br><br>
-            <input type="button" value="Articles" onclick="window.location.href='index.php'">
+            <input type="button" value="Articles" onclick="window.location.href='index.php'"><br>
+            <div>
+                <?php
+                if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                    comprovacions();
+                }
+                ?>
+            </div>
         </form>
     </div>
 </body>
