@@ -22,11 +22,11 @@ require_once 'controlador/registerC.php';
             <h1>Register</h1>
             <div class="form-group">
                 <p>Username:</p>
-                <input type="text" name="username" placeholder="Username" id="username" required>
+                <input type="text" name="username" placeholder="Username" id="username" value="<?php echo username()?>" required>
             </div>
             <div class="form-group">
                 <p>Email:</p>
-                <input type="text" name="email" placeholder="email" id="email" required>
+                <input type="text" name="email" placeholder="email" id="email" value="<?php echo email()?>" required>
             </div>
             <div class="form-group">
                 <p>Password:</p>

@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Function to sanitize and validate username
     function comprovarUsername(){
         $username = htmlspecialchars($_POST['username']);
-        if (!empty($username)) {
+        if (isset($username)) {
             return $username;
         } else {
             echo "El nom d'usuari no pot estar buit";
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Function to sanitize and validate email
     function comprovarEmail(){
         $email = htmlspecialchars($_POST['email']);
-        if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (isset($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return $email;
         } else {
             echo "El email no pot estar buit o no es valid";
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Function to sanitize and validate password
     function comprovarPassword($password){
         $password = htmlspecialchars($password);
-        if (!empty($password)) {
+        if (isset($password)) {
             return $password;
         } else {
             echo "La contrasenya no pot estar buida";
@@ -68,6 +68,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             }
         }
+    }
+}
+
+function username(){
+    if(isset($_POST['username'])){
+        return $_POST['username'];
+
+    }
+}
+function email(){
+    if(isset($_POST['email'])){
+        return $_POST['email'];
+
     }
 }
 ?>

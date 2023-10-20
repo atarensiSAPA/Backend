@@ -13,24 +13,29 @@ require_once 'controlador/registerC.php';
             $email = htmlspecialchars($emailR);
             $password = htmlspecialchars($passwordR);
 
-            $sql = $connexio->prepare("SELECT * FROM usuaris WHERE username = ? AND email = ?");
+            $sql = $connexio->prepare("SELECT * FROM usuaris WHERE username = ?");
             $sql->execute(array(
                 $username,
+            ));
+            $comprovarUsername = $sql->fetch();
+
+            $sql = $connexio->prepare("SELECT * FROM usuaris WHERE email = ?");
+            $sql->execute(array(
                 $email
             ));
-            $comprovar = $sql->fetch();
+            $comprovarEmail = $sql->fetch();
 
             //Si no existeix el registrem a la BD
-            if($comprovar == null){
-                $sql = $connexio->prepare("INSERT INTO usuaris (username, password, email) VALUES (?, ?, ?)");
-                $sql->execute(array(
-                    $username,
-                    $password,
-                    $email
-                ));
-            }else{
-                echo "L'usuari ja existeix";
-            }
+            if($comprovarUsername == null){
+                if($comprovarEmail == null){
+                    $sql = $connexio->prepare("INSERT INTO usuaris (username, password, email) VALUES (?, ?, ?)");
+                    $sql->execute(array(
+                        $username,
+                        $password,
+                        $email
+                    ));
+                }else echo "L'email ja existeix";
+            }else echo "L'username ja existeix";
         }
     }
     
