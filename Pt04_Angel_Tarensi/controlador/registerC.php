@@ -1,6 +1,5 @@
 <?php
 // Include necessary files
-require_once 'model/connexio.php';
 require_once 'model/registerM.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

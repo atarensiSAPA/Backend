@@ -20,17 +20,24 @@ require_once 'controlador/loginC.php';
             <h1>Login</h1>
             <div class="form-group">
                 <p>Username:</p>
-                <input type="text" name="username" placeholder="Username" id="username" required>
+                <input type="text" name="usernameL" placeholder="Username" id="usernameL" value="<?php echo usernameLogin() ?>" required>
             </div>
             <div class="form-group">
                 <p>Password:</p>
-                <input type="password" name="password" placeholder="Password" id="password" required>
+                <input type="password" name="passwordL" placeholder="Password" id="passwordL" required>
             </div>
             <br><br>
             <input type="submit" value="Login">
             <input type="button" value="register" onclick="window.location.href='register.view.php'">
             <br>
             <input type="button" value="Articles" onclick="window.location.href='index.php'">
+            <div>
+                <?php
+                if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                    comprovacionsLogin();
+                }
+                ?>
+            </div>
         </form>
     </div>
 </body>
