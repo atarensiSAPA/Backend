@@ -34,6 +34,9 @@ require_once 'controlador/registerC.php';
                         $password,
                         $email
                     ));
+                    echo "Usuari registrat correctament, esperi 2 segons";
+                    sleep(2);
+                    header('Location: login.view.php');
                 }else echo "L'email ja existeix";
             }else echo "L'username ja existeix";
         }
