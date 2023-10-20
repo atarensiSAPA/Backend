@@ -2,6 +2,8 @@
 //Angel Tarensi
 require_once 'controlador/controlador.php';
 require_once 'model/model.php';
+require_once 'controlador/controladorAdmin.php';
+require_once 'model/modelAdmin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +29,13 @@ require_once 'model/model.php';
 				<option value="50"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 50) echo 'selected'; ?>>50</option>
 				<option value="100"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 100) echo 'selected'; ?>>100</option>
         	</select>
-			<input type="button" value="log-in" onclick="window.location.href='login.view.php'">
-			<input type="button" value="register" onclick="window.location.href='register.view.php'">
+            <form method="post">
+                <input type="submit" value="close" onclick="<?php tancarsessio(); ?>">
+            </form>
 			<section class="articles">
 				<ul>
 					<!--Mostrar els articles-->
-					<?php consultaArticles(); ?>
+					<?php mostrarArticlesUsuari(); ?>
 				</ul>
 			</section>
 

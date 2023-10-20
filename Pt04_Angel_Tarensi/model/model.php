@@ -29,7 +29,7 @@ require_once 'controlador/controlador.php';
             $resultats = $statement->fetchAll();
             //Els printo a una llistat
             foreach ($resultats as $article){ ?>
-                <li><?php echo $article['Id'] . '.-    ' . $article['article']?></li>
+                <li><?php echo $article['id'] . '.-    ' . $article['article']?></li>
             <?php }
         }catch(PDOException $e){
             echo $e;
