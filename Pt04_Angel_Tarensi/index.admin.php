@@ -1,9 +1,8 @@
 <?php
 //Angel Tarensi
-require_once 'controlador/controlador.php';
-require_once 'model/model.php';
 require_once 'controlador/controladorAdmin.php';
 require_once 'model/modelAdmin.php';
+require_once 'controlador/tancarSessio.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,19 +28,26 @@ require_once 'model/modelAdmin.php';
 				<option value="50"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 50) echo 'selected'; ?>>50</option>
 				<option value="100"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 100) echo 'selected'; ?>>100</option>
         	</select>
-            <form method="post">
-                <input type="submit" value="close" onclick="<?php tancarsessio(); ?>">
-            </form>
+            <input type="button" name="close" value="Close" onclick="<?php tancarSessio(); ?>">
 			<section class="articles">
 				<ul>
 					<!--Mostrar els articles-->
 					<?php mostrarArticlesUsuari(); ?>
+					<input type="text" placeholder="Posar un article" name="articleUser" id="articleUser"/>
+					<form method="post">
+						<button type="submit" name="afegir" id="afegir">
+							<img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
+						</button>
+						<button type="submit" name="eliminar" id="eliminar">
+							<img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
+						</button>
+					</form>
 				</ul>
 			</section>
 
 			<section class="paginacio">
 				<!--Mostrar els botons de la paginació-->
-				<?php mostrarPagines(); ?>
+				<?php totalArticlesUsuari(); ?>
 			</section>
 		</form>
 	</div>

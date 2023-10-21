@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_SESSION['username'] = $username;
                 header('Location: index.admin.php');
 
-            }
+            }else echo "<br>Contrasenya incorrecta";
         }
         }
         function comprovarUsernameLogin(){

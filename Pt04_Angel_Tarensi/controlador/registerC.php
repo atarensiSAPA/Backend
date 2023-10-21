@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($password1 == $password2) {
             return password_hash($password1, PASSWORD_DEFAULT);
         } else {
-            echo "Las contrasenyes no son iguals";
+            echo "<br>Las contrasenyes no son iguals";
             return false; // Passwords do not match
         }
     }
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($username)) {
             return $username;
         } else {
-            echo "El nom d'usuari no pot estar buit";
+            echo "<br>El nom d'usuari no pot estar buit";
             return false; // Username is empty
         }
     }
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return $email;
         } else {
-            echo "El email no pot estar buit o no es valid";
+            echo "<br>El email no pot estar buit o no es valid";
             return false; // Email is empty or invalid
         }
     }
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($password)) {
             return $password;
         } else {
-            echo "La contrasenya no pot estar buida";
+            echo "<br>La contrasenya no pot estar buida";
             return false; // Password is empty
         }
     }
