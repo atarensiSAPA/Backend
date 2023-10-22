@@ -7,7 +7,6 @@ require_once 'model/modelAdmin.php';
 session_start();
 if(!isset($_SESSION['username'])){
     header('Location: ../Pt04_Angel_Tarensi/');
-    echo "a";
 }
 
 ?>
