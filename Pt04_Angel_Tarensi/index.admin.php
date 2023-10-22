@@ -28,12 +28,13 @@ require_once 'controlador/tancarSessio.php';
 				<option value="50"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 50) echo 'selected'; ?>>50</option>
 				<option value="100"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 100) echo 'selected'; ?>>100</option>
         	</select>
-            <input type="button" name="close" value="Close" onclick="<?php tancarSessio(); ?>">
-
 			<section class="paginacio">
 				<!--Mostrar els botons de la paginació-->
 				<?php totalArticlesUsuari(); ?>
 			</section>
+		</form>
+		<form method="post" class="botonesAD">
+			<button type="submit" name="close" onclick="<?php tancarSessio(); ?>" class="botonTS">Tancar sessió</button>
 		</form>
 		<form method="post">
 		<section class="articles">

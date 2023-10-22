@@ -36,10 +36,10 @@ require_once 'controlador/registerC.php';
                 <p>Torna a introduir la password:</p>
                 <input type="password" name="password2" placeholder="Password" id="password2" required>
             </div>
-            <input type="submit" value="Register" onclick="comprovacions()">
-            <input type="button" value="login" onclick="window.location.href='login.view.php'">
+            <button type="submit" value="Register" onclick="comprovacions()">Registrar-se</button>
+            <button type="button" value="login" onclick="window.location.href='login.view.php'">Log-in</button>
             <br><br>
-            <input type="button" value="Articles" onclick="window.location.href='index.php'"><br>
+            <button type="button" value="Articles" onclick="window.location.href='index.php'">Articles</button><br>
             <div>
                 <?php
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){

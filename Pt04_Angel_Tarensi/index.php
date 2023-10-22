@@ -27,8 +27,8 @@ require_once 'model/model.php';
 				<option value="50"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 50) echo 'selected'; ?>>50</option>
 				<option value="100"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 100) echo 'selected'; ?>>100</option>
         	</select>
-			<input type="button" value="log-in" onclick="window.location.href='login.view.php'">
-			<input type="button" value="register" onclick="window.location.href='register.view.php'">
+			<button type="button" value="log-in" onclick="window.location.href='login.view.php'" class="botonesAD">Log-in</button>
+			<button type="button" value="register" onclick="window.location.href='register.view.php'">Register</button>
 			<section class="articles">
 				<ul>
 					<!--Mostrar els articles-->

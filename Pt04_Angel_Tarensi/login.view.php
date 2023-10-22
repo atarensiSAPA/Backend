@@ -27,10 +27,10 @@ require_once 'controlador/loginC.php';
                 <input type="password" name="passwordL" placeholder="Password" id="passwordL" required>
             </div>
             <br><br>
-            <input type="submit" value="Login">
-            <input type="button" value="register" onclick="window.location.href='register.view.php'">
+            <button type="submit" value="Login">Login</button>
+            <button type="button" value="register" onclick="window.location.href='register.view.php'">Registrar-se</button>
             <br>
-            <input type="button" value="Articles" onclick="window.location.href='index.php'">
+            <button type="button" value="Articles" onclick="window.location.href='index.php'">Articles</button>
             <div>
                 <?php
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){
