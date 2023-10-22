@@ -29,26 +29,26 @@ require_once 'controlador/tancarSessio.php';
 				<option value="100"<?php if(isset($_GET["nArticles"]) && $_GET["nArticles"] == 100) echo 'selected'; ?>>100</option>
         	</select>
             <input type="button" name="close" value="Close" onclick="<?php tancarSessio(); ?>">
-			<section class="articles">
-				<ul>
-					<!--Mostrar els articles-->
-					<?php mostrarArticlesUsuari(); ?>
-					<input type="text" placeholder="Posar un article" name="articleUser" id="articleUser"/>
-					<form method="post">
-						<button type="submit" name="afegir" id="afegir">
-							<img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
-						</button>
-						<button type="submit" name="eliminar" id="eliminar">
-							<img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
-						</button>
-					</form>
-				</ul>
-			</section>
 
 			<section class="paginacio">
 				<!--Mostrar els botons de la paginació-->
 				<?php totalArticlesUsuari(); ?>
 			</section>
+		</form>
+		<form method="post">
+		<section class="articles">
+				<ul>
+					<!--Mostrar els articles-->
+					<?php mostrarArticlesUsuari(); ?>
+				</ul>
+			</section>
+			<br><input type="text" placeholder="Posar un article" name="articleUser"/>
+			<button type="submit" name="afegir" id="afegir">
+				<img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
+			</button>
+			<button type="submit" name="eliminar" id="eliminar">
+				<img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
+			</button>
 		</form>
 	</div>
 </body>

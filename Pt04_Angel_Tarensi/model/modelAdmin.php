@@ -44,7 +44,14 @@ function mostrarArticlesUsuari(){
         $resultats = $sql->fetchAll();
         //Els printo a una llistat
         foreach ($resultats as $article){ ?>
-            <li><?php echo $article['id'] . '.-    ' ?> </li> <input type="text" name="article" id="article" value="<?php $article['article'] ?>">
+            <li><?php echo $article['id'] . '.-    ' ?> <input type="text" name="article" id="article" value="<?php echo $article['article'] ?>">
+                <button type="submit" name="afegir" id="afegir">
+                    <img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
+                </button>
+                <button type="submit" name="eliminar" id="eliminar">
+                    <img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
+                </button>
+            </li>
         <?php }
     }catch(PDOException $e){
         echo $e;
@@ -76,7 +83,7 @@ function mostrarArticlesUsuari(){
             try{
                 $connexio = connexio();
                 $id = idUsuari();
-                $article = $_GET['articleUser'];
+                $article = $_POST['articleUser'];
                 $sql = $connexio->prepare("INSERT INTO articles (article, id_usuari) VALUES (?, ?)");
                 $sql->execute(array(
                     $article,
@@ -95,7 +102,7 @@ function mostrarArticlesUsuari(){
             try{
                 $connexio = connexio();
                 $id = idUsuari();
-                $article = $_GET['articleUser'];
+                $article = $_POST['articleUser'];
                 $sql = $connexio->prepare("DELETE FROM articles WHERE article = ? AND id_usuari = ?");
                 $sql->execute(array(
                     $article,
