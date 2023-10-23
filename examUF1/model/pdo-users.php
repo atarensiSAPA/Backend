@@ -319,14 +319,52 @@ function clearResetToken($userId)
 
 // Ex6
 function donarBaixa(){
-    $nickname = "";
-    if(!userExistsByNickname($nickname)){
-        "L'usuari no existeix";
-    }else
-    $connexio = getConnection();
-    
-    $statement = $connexio->prepare('DELETE FROM users WHERE nickname = ?');
-    $statement->execute(array(
-        $nickname,
-    ));
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $connexio = getConnection();
+        $nickname = $_POST["nickname"];
+        if(!userExistsByNickname($nickname)){
+            echo "L'usuari no existeix";
+        }else
+
+        
+        $statement = $connexio->prepare('DELETE FROM users WHERE nickname = ?');
+        $statement->execute(array(
+            $nickname,
+        ));
+    }
+}
+
+// Ex5
+function consultarUsuaris(){
+    try{
+        $connexio = getConnection();
+        /*
+        session_start();
+        $user = $_SESSION['userId'];
+        $sql = $connexio->prepare('SELECT nickname FROM users WHERE userId = ?');
+        $sql->execute(array(
+            $user,
+        ));
+        $users = $sql->fetch();
+        if($users == null){
+            echo "no existeix";
+        }else
+        */
+        
+        $statement = $connexio->prepare('SELECT * FROM users');
+        
+        $statement->execute();
+
+        $resultats = $statement->fetchAll();
+        //Com els printo a una taula faig tr i td
+        foreach ($resultats as $usuari){
+            //if(!$usuari['nickname'] == $users["nickname"]){
+                echo $usuari['nickname'] . "<br>";
+            //}
+        }
+        $connexio = null;
+    }catch(PDOException $e){
+        echo "Error: no s'ha pogut consultar els usuaris!!";
+        die();
+    }
 }

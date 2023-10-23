@@ -18,10 +18,6 @@
 
 <body>
 	<!-- Navbar -->
-	<!-- Ex6 -->
-	<?php require_once '../model/pdo-users.php';?>
-	<br><br>
-	<button type="button" onclick="<?php ?>">Donar-se de baixa</button> 
 	<?php require_once '../controller/navbar.php' ?>
 	<header class="row m-4 text-center">
 		<h3>
