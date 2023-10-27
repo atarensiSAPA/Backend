@@ -30,9 +30,10 @@ function mostrarArticlesUsuari(){
         $resultats = $comprovar->fetch();
 
         // Comprovem que hagui articles, en cas contrari, rediriguim
-        //if(!$resultats){
-                //header('Location: index.php');
-        //}else
+        if(!$resultats){
+                ?> <li>No hi ha articles per mostrar</li> <?php
+                return;
+        }else
         
         $sql = $connexio->prepare("SELECT * FROM articles WHERE id_usuari = ? LIMIT $inici, $final");
 
@@ -45,12 +46,12 @@ function mostrarArticlesUsuari(){
         //Els printo a una llistat
         foreach ($resultats as $article){ ?>
             <li><?php echo $article['id'] . '.-    ' ?> <input type="text" name="article" id="article" value="<?php echo $article['article'] ?>">
-                <button type="submit" name="afegir" id="afegir">
-                    <img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
-                </button>
-                <button type="submit" name="eliminar" id="eliminar">
-                    <img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
-                </button>
+                    <button type="submit" name="afegir" id="afegir">
+                        <img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
+                    </button>
+                    <button type="submit" name="eliminar" id="eliminar">
+                        <img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
+                    </button>
             </li>
         <?php }
     }catch(PDOException $e){
@@ -83,12 +84,13 @@ function mostrarArticlesUsuari(){
             try{
                 $connexio = connexio();
                 $id = idUsuari();
-                $article = $_POST['articleUser'];
+                $article = $_POST['articleUser']?? "";
                 $sql = $connexio->prepare("INSERT INTO articles (article, id_usuari) VALUES (?, ?)");
                 $sql->execute(array(
                     $article,
                     $id,
                 ));
+                header('Location: index.admin.php');
             }catch(PDOException $e){
                 echo $e;
                 echo "\no Error: No s'ha pogut connectar amb la base de dades!!" . "<br />";
@@ -101,13 +103,31 @@ function mostrarArticlesUsuari(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             try{
                 $connexio = connexio();
-                $id = idUsuari();
-                $article = $_POST['articleUser'];
-                $sql = $connexio->prepare("DELETE FROM articles WHERE article = ? AND id_usuari = ?");
-                $sql->execute(array(
-                    $article,
+                $id_user = idUsuari();
+                /*
+                $statement = $connexio->prepare('SELECT article FROM articles WHERE id_usuari = ?');
+                $statement->execute(array(
                     $id,
                 ));
+                $statement->fetch();
+                if($statement == ""){
+                    echo "No hi ha articles per eliminar";
+                    die();
+                }else
+                */
+                $article = $_POST['article']?? "";
+                $id_article = $connexio->prepare('SELECT id FROM articles WHERE article = ?');
+                $id_article->execute(array(
+                    $article,
+                ));
+                $id_article = $id_article->fetch();
+
+                $sql = $connexio->prepare("DELETE FROM articles WHERE id = ? AND id_usuari = ?");
+                $sql->execute(array(
+                    $id_article['id'],
+                    $id_user,
+                ));
+                header('Location: index.admin.php');
             }catch(PDOException $e){
                 echo $e;
                 echo "\no Error: No s'ha pogut connectar amb la base de dades!!" . "<br />";

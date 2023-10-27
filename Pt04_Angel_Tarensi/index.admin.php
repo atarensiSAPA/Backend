@@ -37,18 +37,17 @@ require_once 'controlador/tancarSessio.php';
 			<button type="submit" name="close" onclick="<?php tancarSessio(); ?>" class="botonTS">Tancar sessió</button>
 		</form>
 		<form method="post">
-		<section class="articles">
-				<ul>
-					<!--Mostrar els articles-->
-					<?php mostrarArticlesUsuari(); ?>
-				</ul>
+			<section class="articles">
+					<ul>
+						<!--Mostrar els articles-->
+						<?php mostrarArticlesUsuari(); ?>
+					</ul>
 			</section>
-			<br><input type="text" placeholder="Posar un article" name="articleUser"/>
+		</form>
+		<form method="post">
+			<br><input type="text" placeholder="Posar un article" name="articleUser" id="articleUser"/>
 			<button type="submit" name="afegir" id="afegir">
 				<img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
-			</button>
-			<button type="submit" name="eliminar" id="eliminar">
-				<img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
 			</button>
 		</form>
 	</div>
