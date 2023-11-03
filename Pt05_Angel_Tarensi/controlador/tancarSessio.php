@@ -7,7 +7,7 @@ function tancarSessio(){
     if(isset($_POST['close'])){
         session_start();
         session_destroy();
-        header('Location: ../Pt04_Angel_Tarensi');
+        header('Location: ../Pt05_Angel_Tarensi');
         exit();
     }
 }

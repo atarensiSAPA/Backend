@@ -1,5 +1,5 @@
 <?php 
-    require_once("controlador/recuperacioP.php");
+    require_once("controlador/CrecuperacioP.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,12 +16,12 @@
             <div class="formulari">
                 <form action="recuperacioP.view.php" method="POST">
                     <label for="emailR">Correu electrònic:</label>
-                    <input type="email" name="emailR" id="emailR" placeholder="Introdueix el teu correu electrònic" required>
-                    <input type="submit" name="recuperar" value="Recuperar">
+                    <input type="email" name="emailR" id="emailR" placeholder="Correu electrònic" required>
+                    <button type="submit" name="recuperar" value="Recuperar">Recuperar</button>
                 </form>
             </div>
             <div class="enllaços">
-                <a href="index.php">Tornar a l'inici</a>
+                <button type="button" name="inici" onclick="window.location.href='./index.php'">Tornar a l'inici</button>
             </div>
         </div>
     </body>

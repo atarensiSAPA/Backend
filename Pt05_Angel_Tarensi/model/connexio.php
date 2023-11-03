@@ -1,7 +1,7 @@
 <?php
 //Angel Tarensi
 //trucar a les funcions següents
-require_once 'model/db-constants.php';
+require_once 'db-constants.php';
 
 function connexio(){
     try{

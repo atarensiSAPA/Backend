@@ -2,8 +2,8 @@
 //Angel Tarensi
 //trucar a les funcions següents
 require_once 'controlador/controladorAdmin.php';
-require_once 'model/model.php';
-require_once 'model/connexio.php';
+require_once 'model.php';
+require_once 'connexio.php';
 
 function idUsuari(){
     $connexio = connexio();

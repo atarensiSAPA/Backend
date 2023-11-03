@@ -1,5 +1,5 @@
 <?php
-require_once("model/connectaBD.php");
+require_once("connexio.php");
 require_once("controlador/CrecuperacioP.php");
 
 function comprovaEmail($email) {
@@ -16,15 +16,37 @@ function comprovaEmail($email) {
     }
 }
 
+function idUsuariR($email){
+    $connexio = connexio();
+    $sql = $connexio->prepare("SELECT id FROM usuaris WHERE email = ?");
+    $sql->execute(array(
+        $email
+    ));
+    $id = $sql->fetch();
+    return $id['id'];
+}
+
+function crearToken($id){
+    $conn = connexio();
+    $token = md5(uniqid(rand(), true));
+    $sql = $conn->prepare("UPDATE usuaris SET token = ?, token_time = ? WHERE id = ?");
+    $sql->execute(array(
+        $token,
+        date("Y-m-d H:i:s"),
+        $id,
+    ));
+}
+
 //funció per obtenir el token
-function obtenirToken($id){
+function obtenirToken($id){ 
 $conn = connexio();
 $sql = $conn->prepare("SELECT * FROM usuaris WHERE id = ?");
 $sql->execute(array(
     $id,
 ));
 $resultat = $sql->fetch();
-$resta = strtotime(date("Y-m-d H:i:s")) - strtotime($resultat['token_time']);
+$tokenTime = $resultat['token_time'];
+$resta = strtotime(date("Y-m-d H:i:s")) - strtotime($tokenTime);
 if($resta > 14400){
     ?> <script>alert("El token ha caducat");</script> <?php
     eliminarToken($id);
