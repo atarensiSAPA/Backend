@@ -12,6 +12,7 @@ require 'controlador/PHPMailer-master\src\PHPMailer.php';
 require 'controlador/PHPMailer-master\src\SMTP.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+function enviarCorreu(){
     $email = $_POST['emailR'];
     if(comprovaEmail($email)){
         $id = idUsuariR($email);
@@ -26,6 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }else{
         echo "El correu electrònic no existeix";
     }
+}
 }
 
 function mailRecuperarP($email, $subject, $message){

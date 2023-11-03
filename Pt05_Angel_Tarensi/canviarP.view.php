@@ -1,5 +1,5 @@
 <?php
-require_once 'controlador/canviarP.php';
+require_once 'controlador/CcanviarP.php';
 ?>
 
 <html>

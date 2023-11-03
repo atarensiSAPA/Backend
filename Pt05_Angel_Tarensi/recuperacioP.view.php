@@ -23,6 +23,11 @@
             <div class="enllaços">
                 <button type="button" name="inici" onclick="window.location.href='./index.php'">Tornar a l'inici</button>
             </div>
+            <?php
+                if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                    enviarCorreu();
+                }
+            ?>
         </div>
     </body>
 </html>

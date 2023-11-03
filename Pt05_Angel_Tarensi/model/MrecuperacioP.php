@@ -46,13 +46,15 @@ $sql->execute(array(
 ));
 $resultat = $sql->fetch();
 $tokenTime = $resultat['token_time'];
+$token = $resultat['token'];
 $resta = strtotime(date("Y-m-d H:i:s")) - strtotime($tokenTime);
+
 if($resta > 14400){
     ?> <script>alert("El token ha caducat");</script> <?php
     eliminarToken($id);
     return false;
 }else{
-    return $resultat['token'];
+    return $token;
 }
 
 }
