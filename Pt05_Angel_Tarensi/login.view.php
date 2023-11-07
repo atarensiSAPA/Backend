@@ -3,6 +3,7 @@
 //trucar a les funcions següents
 require_once 'model/loginM.php';
 require_once 'controlador/loginC.php';
+require_once 'controlador/reCaptcha.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,10 +14,11 @@ require_once 'controlador/loginC.php';
         <!--CSS-->
         <link rel="stylesheet" href="estils/estils.css" type="text/css">
 	<title>Login</title>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
     <div class="contenidor">
-        <form method="post">
+        <form id="form" action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
             <h1>Login</h1>
             <div class="form-group">
                 <p>Username:</p>
@@ -27,8 +29,12 @@ require_once 'controlador/loginC.php';
                 <input type="password" name="passwordL" placeholder="Password" id="passwordL" required>
             </div>
             <br><br>
-            <button type="submit" value="Login">Login</button>
+            <button type="submit" value="login">Login</button>
             <button type="button" value="register" onclick="window.location.href='./register.view.php'">Registrar-se</button>
+
+			<div class="g-recaptcha" data-sitekey="6LetJAEpAAAAAPDNBGroPVVe_P8rPSW_Bpt-XU5r"></div>
+			<br>
+			
             <br>
             <button type="button" value="Articles   " onclick="window.location.href='./index.php'">Articles</button>
             <button type="button" value="recuperarP" onclick="window.location.href='./recuperacioP.view.php'">Recuperar Password</button>
