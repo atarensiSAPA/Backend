@@ -2,6 +2,8 @@
 //Angel Tarensi
 require_once 'controlador/controlador.php';
 require_once 'model/model.php';
+//Cookies per intents de login
+setcookie('intents', 3);
 ?>
 <!DOCTYPE html>
 <html lang="en">

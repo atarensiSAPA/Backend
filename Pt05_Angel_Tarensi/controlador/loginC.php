@@ -21,7 +21,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_SESSION['username'] = $username;
                 header('Location: index.admin.php');
 
-            }else echo "<br>Contrasenya incorrecta";
+            }else {
+                echo "<br>Contrasenya incorrecta";
+                if($_COOKIE['intents'] > 1){
+			        echo '<script language="javascript">document.getElementsByClassName("g-recaptcha")[0].setAttribute("hidden", "true");</script>';
+                }
+                setcookie('intents', $_COOKIE['intents'] - 1);
+            }
         }
         }
         function comprovarUsernameLogin(){
