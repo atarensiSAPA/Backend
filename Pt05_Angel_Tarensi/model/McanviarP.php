@@ -4,28 +4,29 @@ require_once 'MrecuperacioP.php';
 
 function comprovarPassBD($pass){
     $conn = connexio();
-    $sql = $conn->prepare("SELECT password FROM usuaris WHERE id = ?");
+    if(isset($_GET['id'])){$id = htmlspecialchars($_GET['id']);}
+    $sql = $conn->prepare("SELECT * FROM usuaris WHERE id = ?");
     $sql->execute(array(
-        $_GET['id']?? "",
-    )); 
+        $id,
+    ));
     $resultat = $sql->fetch();
-    $oldPass = $resultat;
+    $oldPass = $resultat['password'];
     if(password_verify($pass, $oldPass)){
         return true;
     }else{
         return false;
     }
-
 }
 
 function canviarPassword($pass){
     $conn = connexio();
+    $id = htmlspecialchars($_GET['id']);
     $sql = $conn->prepare("UPDATE usuaris SET password = ? WHERE id = ?");
     $sql->execute(array(
         $pass,
-        $_GET['id']?? "",
+        $id,
     ));
-    eliminarToken($_GET['id']?? "");
+    eliminarToken($id);
 }
 
 ?>

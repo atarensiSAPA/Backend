@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $username,
             ));
             $pass = $sql->fetch();
-            if($pass == null){
+            if($pass['password'] == null){
                 echo "L'usuari no existeix";
             }else
             return $pass['password'];
