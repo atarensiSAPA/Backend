@@ -8,7 +8,7 @@
 		
 		if(!$captcha){
 
-			echo "Por favor verifica el captcha";
+			echo "Si us plau verifica el captcha";
 			
 			} else {
 			
@@ -18,7 +18,7 @@
 			
 			if($arr['success'])
 			{
-				echo '<h2>Thanks</h2>';
+				echo '<h2>Gracies</h2>';
 				setcookie('intents', 3);
 				} else {
 				echo '<h3>Error al comprobar Captcha </h3>';
@@ -29,7 +29,8 @@
 		if($_COOKIE['intents'] <= 1){
 			echo '<script language="javascript">document.getElementsByClassName("g-recaptcha")[0].removeAttribute("hidden");</script>';
 			setcookie('intents', 3);
-		}else echo '<script language="javascript">document.getElementsByClassName("g-recaptcha")[0].setAttribute("hidden", "true");</script>';
-
+		}else{
+			echo '<script language="javascript">document.getElementsByClassName("g-recaptcha")[0].setAttribute("hidden", "true");</script>';
+		}
 	}
 ?>

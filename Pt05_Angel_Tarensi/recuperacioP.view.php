@@ -13,7 +13,7 @@
             <div class="titol">
                 <h1>Recuperació de la contrasenya</h1>
             </div>
-            <div class="formulari">
+            <div class="formulari" onchange="this.form.submit()">
                 <form action="recuperacioP.view.php" method="POST">
                     <label for="emailR">Correu electrònic:</label>
                     <input type="email" name="emailR" id="emailR" placeholder="Correu electrònic" required>

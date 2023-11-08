@@ -16,6 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $desencryptedPassword = password_verify($password, hashPassword($username));
             if ($desencryptedPassword) {
                 //Iniciem sessió
+                $_COOKIE['intents'] = 3;
                 session_start();
                 ini_set('session.gc_maxlifetime', 1800);
                 $_SESSION['username'] = $username;
@@ -23,9 +24,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             }else {
                 echo "<br>Contrasenya incorrecta";
-                if($_COOKIE['intents'] > 1){
-			        echo '<script language="javascript">document.getElementsByClassName("g-recaptcha")[0].setAttribute("hidden", "true");</script>';
-                }
                 setcookie('intents', $_COOKIE['intents'] - 1);
             }
         }

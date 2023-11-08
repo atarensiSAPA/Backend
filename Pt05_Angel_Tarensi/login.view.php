@@ -5,9 +5,6 @@ require_once 'model/loginM.php';
 require_once 'controlador/loginC.php';
 require_once 'controlador/reCaptcha.php';
 
-if($_COOKIE['intents'] > 1){
-    echo '<script language="javascript">document.getElementsByClassName("g-recaptcha")[0].removeAttribute("hidden");</script>';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +30,7 @@ if($_COOKIE['intents'] > 1){
                 <input type="password" name="passwordL" placeholder="Password" id="passwordL" required>
             </div>
             <br><br>
-            <button type="submit" value="login">Login</button>
+            <button type="submit" value="login" name="login">Login</button>
             <button type="button" value="register" onclick="window.location.href='./register.view.php'">Registrar-se</button>
 		
             <br>
@@ -41,7 +38,7 @@ if($_COOKIE['intents'] > 1){
             <button type="button" value="recuperarP" onclick="window.location.href='./recuperacioP.view.php'">Recuperar Password</button>
             <div>
                 <?php
-                if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                if(isset($_POST['login'])){
                     comprovacionsLogin();
                     echo '<div class="g-recaptcha" data-sitekey="6LetJAEpAAAAAPDNBGroPVVe_P8rPSW_Bpt-XU5r" hidden></div>';
                     mostrarReCaptcha();
