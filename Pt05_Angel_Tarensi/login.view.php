@@ -34,14 +34,14 @@ require_once 'controlador/reCaptcha.php';
             <button type="button" value="register" onclick="window.location.href='./register.view.php'">Registrar-se</button>
 		
             <br>
-            <button type="button" value="Articles   " onclick="window.location.href='./index.php'">Articles</button>
+            <button type="button" value="Articles" onclick="window.location.href='./index.php'">Articles</button>
             <button type="button" value="recuperarP" onclick="window.location.href='./recuperacioP.view.php'">Recuperar Password</button>
             <div>
                 <?php
-                if(isset($_POST['login'])){
+                echo '<div class="g-recaptcha" data-sitekey="6LetJAEpAAAAAPDNBGroPVVe_P8rPSW_Bpt-XU5r" hidden></div>';
+                mostrarReCaptcha();
+                if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     comprovacionsLogin();
-                    echo '<div class="g-recaptcha" data-sitekey="6LetJAEpAAAAAPDNBGroPVVe_P8rPSW_Bpt-XU5r" hidden></div>';
-                    mostrarReCaptcha();
                 }
                 ?>
             </div>
