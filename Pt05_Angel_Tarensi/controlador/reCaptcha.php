@@ -1,5 +1,4 @@
 <?php
-	require_once 'controlador/loginC.php';
 	setcookie('captcha', false);
 
 	function mostrarReCaptcha(){
@@ -28,7 +27,7 @@
 				
 				if($arr['success'])
 				{
-					setcookie('Captcha', true);
+					setcookie('captcha', true);
 					setcookie('intents', 3);
 					return true;
 					} else {

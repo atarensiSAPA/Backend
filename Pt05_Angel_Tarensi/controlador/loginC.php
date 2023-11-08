@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 ini_set('session.gc_maxlifetime', 1800);
                 $_SESSION['username'] = $username;
                 header('Location: index.admin.php');
-
+                    
             }else {
                 echo "<br>Contrasenya incorrecta";
                 setcookie('intents', $_COOKIE['intents'] - 1);
