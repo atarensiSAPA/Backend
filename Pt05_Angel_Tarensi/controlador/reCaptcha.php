@@ -3,7 +3,6 @@
 	function mostrarReCaptcha(){
 		if($_COOKIE['intents'] <= 1){
 			echo '<script language="javascript">document.getElementsByClassName("g-recaptcha")[0].removeAttribute("hidden");</script>';
-			setcookie('intents', 3);
 		}else{
 			echo '<script language="javascript">document.getElementsByClassName("g-recaptcha")[0].setAttribute("hidden", "true");</script>';
 		}
