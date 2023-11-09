@@ -1,5 +1,4 @@
 <?php
-	setcookie('captcha', false);
 
 	function mostrarReCaptcha(){
 		if($_COOKIE['intents'] <= 1){
@@ -27,7 +26,6 @@
 				
 				if($arr['success'])
 				{
-					setcookie('captcha', true);
 					setcookie('intents', 3);
 					return true;
 					} else {

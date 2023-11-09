@@ -2,6 +2,7 @@
 //Angel Tarensi
 //trucar a les funcions següents
 require_once 'model/loginM.php';
+require_once 'reCaptcha.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //Comprovem que l'usuari existeixi a la BD
@@ -14,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if ($username && $password) {
             // compare $password with the hashed password in the database
             $desencryptedPassword = password_verify($password, hashPassword($username));
-            if ($desencryptedPassword && $_COOKIE['captcha'] == true) {
+            if ($desencryptedPassword && reCaptcha()) {
                 //Iniciem sessió
                 $_COOKIE['intents'] = 3;
                 session_start();
