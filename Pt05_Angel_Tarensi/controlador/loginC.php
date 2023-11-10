@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $_COOKIE['intents'] = 3;
                     session_start();
                     ini_set('session.gc_maxlifetime', 1800);
-                    $_SESSION['username'] = $username;
+                    $_SESSION['email'] = getEmail($username);
                     header('Location: index.admin.php');
                 }else {
                     echo "<br>reCaptcha incorrecte";

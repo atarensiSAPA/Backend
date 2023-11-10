@@ -7,9 +7,9 @@ require_once 'connexio.php';
 
 function idUsuari(){
     $connexio = connexio();
-    $sql = $connexio->prepare("SELECT id FROM usuaris WHERE username = ?");
+    $sql = $connexio->prepare("SELECT id FROM usuaris WHERE email = ?");
     $sql->execute(array(
-        $_SESSION['username'],
+        $_SESSION['email'],
     ));
     $id = $sql->fetch();
     return $id['id'];

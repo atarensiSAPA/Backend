@@ -28,5 +28,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             return $pass['password'];
         }else echo "L'usuari no existeix";
     }
+    function getEmail($username){
+        $connexio = connexio();
+        $sql = $connexio->prepare("SELECT * FROM usuaris WHERE username = ?");
+        $sql->execute(array(
+            $username,
+        ));
+        $email = $sql->fetch();
+        return $email['email'];
+    }
 }
 ?>

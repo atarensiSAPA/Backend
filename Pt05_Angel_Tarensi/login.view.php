@@ -4,6 +4,7 @@
 require_once 'model/loginM.php';
 require_once 'controlador/loginC.php';
 require_once 'controlador/reCaptcha.php';
+require_once 'controlador/GOOGLE-LOGIN-PHP/login.php';
 
 ?>
 <!DOCTYPE html>
@@ -37,6 +38,11 @@ require_once 'controlador/reCaptcha.php';
             <button type="button" value="Articles" onclick="window.location.href='./index.php'">Articles</button>
             <button type="button" value="recuperarP" onclick="window.location.href='./recuperacioP.view.php'">Recuperar Password</button>
             <div>
+                <div>
+                    <br><a type="button" class="login-with-google-btn" href="<?php echo $client->createAuthUrl(); ?>">
+                        Sign in with Google
+                    </a>
+                </div>
                 <?php
                 echo '<div class="g-recaptcha" data-sitekey="6LetJAEpAAAAAPDNBGroPVVe_P8rPSW_Bpt-XU5r" hidden></div>';
                 mostrarReCaptcha();

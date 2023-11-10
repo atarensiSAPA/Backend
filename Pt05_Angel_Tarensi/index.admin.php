@@ -3,6 +3,7 @@
 require_once 'controlador/controladorAdmin.php';
 require_once 'model/modelAdmin.php';
 require_once 'controlador/tancarSessio.php';
+require_once 'controlador/GOOGLE-LOGIN-PHP/login.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
