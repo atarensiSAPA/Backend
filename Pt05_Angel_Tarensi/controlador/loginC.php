@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // compare $password with the hashed password in the database
             $desencryptedPassword = password_verify($password, hashPassword($username));
             if ($desencryptedPassword) {
-                if(reCaptcha()){
+                if(reCaptcha() || $_COOKIE['intents'] >= 1){
                     //Iniciem sessió
                     $_COOKIE['intents'] = 3;
                     session_start();

@@ -11,7 +11,7 @@ require 'controlador/PHPMailer-master\src\Exception.php';
 require 'controlador/PHPMailer-master\src\PHPMailer.php';
 require 'controlador/PHPMailer-master\src\SMTP.php';
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if(isset($_POST['recuperar'])){
 function enviarCorreu(){
     $email = $_POST['emailR'];
     if(comprovaEmail($email)){

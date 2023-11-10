@@ -2,15 +2,17 @@
 require_once 'controlador/CcanviarP.php';
 require_once 'MrecuperacioP.php';
 
-function comprovarPassBD($pass){
+function comprovarPassBD($pass, $id){
     $conn = connexio();
-    if(isset($_GET['id'])){$id = htmlspecialchars($_GET['id']);}
+
     $sql = $conn->prepare("SELECT * FROM usuaris WHERE id = ?");
     $sql->execute(array(
         $id,
     ));
     $resultat = $sql->fetch();
     $oldPass = $resultat['password'];
+    echo "oldpass: ".$oldPass."<br>";
+    echo "pass: ".$pass;
     if(password_verify($pass, $oldPass)){
         return true;
     }else{
@@ -18,7 +20,7 @@ function comprovarPassBD($pass){
     }
 }
 
-function canviarPassword($pass){
+function canviarPassword($pass, $id){
     $conn = connexio();
     $id = htmlspecialchars($_GET['id']);
     $sql = $conn->prepare("UPDATE usuaris SET password = ? WHERE id = ?");

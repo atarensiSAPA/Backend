@@ -18,19 +18,17 @@
 			if(!$captcha){
 				
 				} else {
-				
-				$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
-				
-				$arr = json_decode($response, TRUE);
-				
-				if($arr['success'])
-				{
-					setcookie('intents', 3);
-					return true;
+					$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
+					
+					$arr = json_decode($response, TRUE);
+					
+					if($arr['success']){
+						setcookie('intents', 3);
+						return true;
 					} else {
-					return false;
+						return false;
+					}
 				}
-			}
 		}
 	}
 ?>

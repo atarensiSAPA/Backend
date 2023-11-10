@@ -24,7 +24,7 @@
                 <button type="button" name="inici" onclick="window.location.href='./index.php'">Tornar a l'inici</button>
             </div>
             <?php
-                if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                if(isset($_POST['recuperar'])){
                     enviarCorreu();
                 }
             ?>
