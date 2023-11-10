@@ -15,14 +15,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if ($username && $password) {
             // compare $password with the hashed password in the database
             $desencryptedPassword = password_verify($password, hashPassword($username));
-            if ($desencryptedPassword && reCaptcha()) {
-                //Iniciem sessió
-                $_COOKIE['intents'] = 3;
-                session_start();
-                ini_set('session.gc_maxlifetime', 1800);
-                $_SESSION['username'] = $username;
-                header('Location: index.admin.php');
-                    
+            if ($desencryptedPassword) {
+                if(reCaptcha()){
+                    //Iniciem sessió
+                    $_COOKIE['intents'] = 3;
+                    session_start();
+                    ini_set('session.gc_maxlifetime', 1800);
+                    $_SESSION['username'] = $username;
+                    header('Location: index.admin.php');
+                }else {
+                    echo "<br>reCaptcha incorrecte";
+                }   
             }else {
                 echo "<br>Contrasenya incorrecta";
                 setcookie('intents', $_COOKIE['intents'] - 1);
