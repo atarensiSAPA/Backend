@@ -22,7 +22,6 @@ function comprovarPassBD($pass, $id){
 
 //funció per canviar la contrasenya
 function canviarPassword($pass, $id, $token){
-    echo "hola";
     $conn = connexio();
     $sql = $conn->prepare("SELECT token FROM usuaris WHERE id = ?");
     $sql->execute(array(

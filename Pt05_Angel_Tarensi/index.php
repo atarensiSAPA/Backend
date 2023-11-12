@@ -4,6 +4,9 @@ require_once 'controlador/controlador.php';
 require_once 'model/model.php';
 //Cookies per intents de login
 setcookie('intents', 3);
+//Quan entri a la pàgina, es destrueix las sessións
+session_start();
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
