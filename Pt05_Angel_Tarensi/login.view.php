@@ -42,7 +42,7 @@ require_once 'controlador/GOOGLE-LOGIN-PHP/login.php';
                     <br><a type="button" class="login-with-google-btn" href="<?php echo $client->createAuthUrl(); ?>">
                         Sign in with Google
                     </a>
-                </div>
+                </div><br>
                 <?php
                 echo '<div class="g-recaptcha" data-sitekey="6LetJAEpAAAAAPDNBGroPVVe_P8rPSW_Bpt-XU5r" hidden></div>';
                 mostrarReCaptcha();
