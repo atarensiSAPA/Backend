@@ -15,7 +15,7 @@ require_once 'controlador/CcanviarP.php';
         <input type="password" name="password2R" id="password2R" placeholder="Repeteix la contrasenya" required><br>
         <button type="submit" name="canviar" id="canviar" value="Canviar">Canviar</button><br>
         <button type="button" onclick="window.location.href='index.php'">Tornar a l'index</button>
-        <?php 
+        <?php
         canviarPass();
         ?>
     </form>

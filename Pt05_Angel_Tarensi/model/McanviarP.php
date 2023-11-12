@@ -11,24 +11,33 @@ function comprovarPassBD($pass, $id){
     ));
     $resultat = $sql->fetch();
     $oldPass = $resultat['password'];
-    echo "oldpass: ".$oldPass."<br>";
-    echo "pass: ".$pass;
     if(password_verify($pass, $oldPass)){
-        return true;
-    }else{
         return false;
+    }else{
+        return true;
     }
 }
 
-function canviarPassword($pass, $id){
+function canviarPassword($pass, $id, $token){
+    echo "hola";
     $conn = connexio();
-    $id = htmlspecialchars($_GET['id']);
+    $sql = $conn->prepare("SELECT token FROM usuaris WHERE id = ?");
+    $sql->execute(array(
+        $id,
+    ));
+    $resultat = $sql->fetch();
+    if($resultat['token'] != $token){
+        ?> <script>alert("El token no coincideix")</script><?php
+        header('Location: login.view.php');
+    }else
     $sql = $conn->prepare("UPDATE usuaris SET password = ? WHERE id = ?");
     $sql->execute(array(
         $pass,
         $id,
     ));
-    eliminarToken($id);
+    
+    ?> <script>alert("S'ha modificat la contrasenya")</script><?php
+    header('Location: login.view.php');
 }
 
 ?>
