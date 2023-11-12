@@ -43,6 +43,7 @@ require_once 'controlador/registerC.php';
             <div>
                 <?php
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                    //trucar a la funció comprovacions() del controlador Cregister
                     comprovacions();
                 }
                 ?>

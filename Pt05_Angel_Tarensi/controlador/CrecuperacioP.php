@@ -1,5 +1,5 @@
 <?php
-//Signatura del propietari: Angel Tarensi
+//Angel Tarensi
 require_once 'model/MrecuperacioP.php';
 
 //Importacio de la llibreria PHPMailer
@@ -15,8 +15,11 @@ if(isset($_POST['recuperar'])){
 function enviarCorreu(){
     $email = $_POST['emailR'];
     if(comprovaEmail($email)){
+        //obtenir id de l'usuari a partir de l'email
         $id = idUsuariR($email);
+        //crear token
         crearToken($id);
+        //obtenir token
         $token = obtenirToken($id);
         if($token != false){
             $link = "http://localhost/backEnd/uf1/Practiques/Backend/Pt05_Angel_Tarensi/canviarP.view.php?id=".$id."&token=".$token;
@@ -30,6 +33,7 @@ function enviarCorreu(){
 }
 }
 
+//Enviar correu electrònic per recuperar la contrasenya
 function mailRecuperarP($email, $subject, $message){
 
         

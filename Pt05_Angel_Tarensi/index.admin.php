@@ -40,7 +40,7 @@ require_once 'controlador/GOOGLE-LOGIN-PHP/login.php';
 		<form method="post">
 			<section class="articles">
 					<ul>
-						<!--Mostrar els articles-->
+						<!--Mostrar els articles de l'usuari indicat-->
 						<?php mostrarArticlesUsuari(); ?>
 					</ul>
 			</section>

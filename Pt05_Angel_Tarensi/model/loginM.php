@@ -28,6 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             return $pass['password'];
         }else echo "L'usuari no existeix";
     }
+    //funció per retornar l'email a partir de l'username
     function getEmail($username){
         $connexio = connexio();
         $sql = $connexio->prepare("SELECT * FROM usuaris WHERE username = ?");

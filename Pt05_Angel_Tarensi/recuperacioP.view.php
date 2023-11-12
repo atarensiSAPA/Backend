@@ -1,5 +1,6 @@
 <?php 
-    require_once("controlador/CrecuperacioP.php");
+//Angel Tarensi
+require_once("controlador/CrecuperacioP.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,6 +26,7 @@
             </div>
             <?php
                 if(isset($_POST['recuperar'])){
+                    //trucar a la funció enviarCorreu() del controlador CrecuperacioP
                     enviarCorreu();
                 }
             ?>

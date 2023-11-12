@@ -18,7 +18,7 @@ require_once 'controlador/registerC.php';
                 $username,
             ));
             $comprovarUsername = $sql->fetch();
-
+            //Comprovar que l'email no existeixi a la BD
             $sql = $connexio->prepare("SELECT * FROM usuaris WHERE email = ?");
             $sql->execute(array(
                 $email

@@ -1,4 +1,5 @@
 <?php
+//Angel Tarensi
 session_start();
 session_regenerate_id(true);
 // change the information according to your database

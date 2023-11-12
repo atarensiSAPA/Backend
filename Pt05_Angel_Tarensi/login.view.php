@@ -44,7 +44,9 @@ require_once 'controlador/GOOGLE-LOGIN-PHP/login.php';
                     </a>
                 </div><br>
                 <?php
+                //Mostrar el reCaptcha amb l'atribut hidden
                 echo '<div class="g-recaptcha" data-sitekey="6LetJAEpAAAAAPDNBGroPVVe_P8rPSW_Bpt-XU5r" hidden></div>';
+                //Quan gasti els 3 intents de login, és treure l'atribut hidden del reCAPTCHA
                 mostrarReCaptcha();
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     comprovacionsLogin();

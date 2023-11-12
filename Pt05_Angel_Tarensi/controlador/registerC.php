@@ -1,4 +1,5 @@
 <?php
+//Angel Tarensi
 // Include necessary files
 require_once 'model/registerM.php';
 
@@ -49,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
+    //funciona per registrar l'usuari quan tots els camps son correctes
     function comprovacions(){
         // Check and sanitize input
         $username = comprovarUsername($_POST['username']);
@@ -70,12 +72,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
+//funció per comprovar que ha introduit el camp de l'username
 function username(){
     if(isset($_POST['username'])){
         return $_POST['username'];
 
     }
 }
+//funció per comprovar que ha introduit el camp de l'email
 function email(){
     if(isset($_POST['email'])){
         return $_POST['email'];

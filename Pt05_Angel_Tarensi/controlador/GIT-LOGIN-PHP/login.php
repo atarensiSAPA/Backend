@@ -1,4 +1,5 @@
 <?php
+//Angel Tarensi
 /*!
 A simple example that shows how to use Guzzle as a Http Client for Hybridauth instead of PHP Curl extention.
 */

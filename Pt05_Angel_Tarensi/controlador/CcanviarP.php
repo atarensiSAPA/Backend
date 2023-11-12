@@ -1,13 +1,16 @@
 <?php
+//Angel Tarensi
 require_once 'model/McanviarP.php';
 require_once 'registerC.php';
 
+//Agafem l'id i el token de la url i la guardem abans de que canvi
 session_start();
 if(!isset($_SESSION['idR'])){
     $_SESSION['idR'] = $_GET['id'];
     $_SESSION['tokenR'] = $_GET['token'];
 }
 
+//funció per comprovar que les dues contrasenyes siguin iguals, encriptarla i canviar la contrasenya
 function canviarPass(){
 $id = $_SESSION['idR'];
 $token = $_SESSION['tokenR'];

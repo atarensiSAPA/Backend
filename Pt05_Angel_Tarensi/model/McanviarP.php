@@ -1,7 +1,9 @@
 <?php
+//Angel Tarensi
 require_once 'controlador/CcanviarP.php';
 require_once 'MrecuperacioP.php';
 
+//funció per comprovar que la contrasenya no sigui la mateixa que la anterior
 function comprovarPassBD($pass, $id){
     $conn = connexio();
 
@@ -18,6 +20,7 @@ function comprovarPassBD($pass, $id){
     }
 }
 
+//funció per canviar la contrasenya
 function canviarPassword($pass, $id, $token){
     echo "hola";
     $conn = connexio();

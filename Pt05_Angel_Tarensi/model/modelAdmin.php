@@ -5,6 +5,7 @@ require_once 'controlador/controladorAdmin.php';
 require_once 'model.php';
 require_once 'connexio.php';
 
+//Funció per retornar el id de l'usuari a partir de l'email
 function idUsuari(){
     $connexio = connexio();
     $sql = $connexio->prepare("SELECT id FROM usuaris WHERE email = ?");
@@ -15,6 +16,7 @@ function idUsuari(){
     return $id['id'];
 }
 
+//Funció per mostrar els articles de l'usuari a inserit a la BD
 function mostrarArticlesUsuari(){
     try{
         $connexio = connexio();
