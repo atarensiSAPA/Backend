@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2023 a las 14:57:35
+-- Tiempo de generación: 12-11-2023 a las 15:06:09
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `usuaris` (
 INSERT INTO `usuaris` (`id`, `username`, `email`, `password`, `google_id`, `token`, `token_time`) VALUES
 (8, 'prova', 'atarensi@gmail.com', '$2y$10$1AsuL8i6z/mDTrkfPiCs7eOTPMwOZ7TyqBH7bndqD18Vj6Hw6twM6', NULL, '588a66dca54dbc7cd5778b3df55d1d06', '2023-11-06 17:47:25'),
 (9, 'prova2', 'testdevirusyprovas@gmail.com', '$2y$10$Z4Bm.Zqvz24OFQ7tXdiQ.e0qlzdWccPbhwhQzvDCHMTYHx97DhVlq', NULL, '', '2023-10-29 23:00:00'),
-(10, 'atarensi', 'a.tarensi2@sapalomera.cat', '$2y$10$fa6..Sxh/TPetfqxXWFjh.OyHltAYdhqLGIiuh33tIdiTNuxq..n2', NULL, 'a6ce1366aa34ceb42958fd4a08a15849', '2023-11-12 12:15:44'),
+(10, 'atarensi', 'a.tarensi2@sapalomera.cat', '$2y$10$fa6..Sxh/TPetfqxXWFjh.OyHltAYdhqLGIiuh33tIdiTNuxq..n2', NULL, '798028624d2efab46d72d9df2e1f27d2', '2023-11-12 14:02:02'),
 (11, '', 'xz1kkx@gmail.com', '', '110032496376064467562', '', '2023-11-10 15:39:39');
 
 --

@@ -6,6 +6,11 @@ require_once 'controlador/loginC.php';
 require_once 'controlador/reCaptcha.php';
 require_once 'controlador/GOOGLE-LOGIN-PHP/login.php';
 
+//Si l'usuari ja ha fet login, el redirigeix a la pàgina principal
+if(isset($_SESSION['email'])){
+    header('Location: index.admin.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

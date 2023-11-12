@@ -1,6 +1,12 @@
 <?php 
 //Angel Tarensi
 require_once("controlador/CrecuperacioP.php");
+
+//Si l'usuari ja ha fet login, el redirigeix a la pàgina principal
+if(isset($_SESSION['email'])){
+    header('Location: index.admin.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html>

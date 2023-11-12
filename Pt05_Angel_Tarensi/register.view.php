@@ -3,6 +3,12 @@
 //trucar a les funcions següents
 require_once 'model/registerM.php';
 require_once 'controlador/registerC.php';
+
+//Si l'usuari ja ha fet login, el redirigeix a la pàgina principal
+if(isset($_SESSION['email'])){
+    header('Location: index.admin.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
