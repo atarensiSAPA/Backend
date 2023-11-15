@@ -47,9 +47,9 @@ function mostrarArticlesUsuari(){
         $resultats = $sql->fetchAll();
         //Els printo a una llistat
         foreach ($resultats as $article){ ?>
-            <li><?php echo $article['id'] . '.-    ' ?> <input type="text" name="article" id="article" value="<?php echo $article['article'] ?>">
+            <li><?php echo $article['id'] . '.-    ' ?> <label><?php echo $article['article'] ?></label>    
                     <button type="submit" name="afegir" id="afegir">
-                        <img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
+                        <img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php if(isset($_POST['afegir']))header('Location: Marticles.view.php'); ?>">
                     </button>
                     <button type="submit" name="eliminar" id="eliminar">
                         <img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
@@ -128,6 +128,27 @@ function mostrarArticlesUsuari(){
                 $sql->execute(array(
                     $id_article['id'],
                     $id_user,
+                ));
+                header('Location: index.admin.php');
+            }catch(PDOException $e){
+                echo $e;
+                echo "\no Error: No s'ha pogut connectar amb la base de dades!!" . "<br />";
+                die();
+            }
+        }
+    }
+    function modificarArticles(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            try{
+                $connexio = connexio();
+                $id = idUsuari();
+                $article = $_POST['article']?? "";
+                $nouArticle = $_POST['nouArticle']?? "";
+                $sql = $connexio->prepare("UPDATE articles SET article = ? WHERE article = ? AND id_usuari = ?");
+                $sql->execute(array(
+                    $nouArticle,
+                    $article,
+                    $id,
                 ));
                 header('Location: index.admin.php');
             }catch(PDOException $e){

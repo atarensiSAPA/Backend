@@ -8,9 +8,9 @@ require_once 'google-api/vendor/autoload.php';
 $client = new Google_Client();
 
 // Enter your Client ID
-$client->setClientId('693439287375-alcc1pi4k1qcuj60gkmqorl2e8cjdm77.apps.googleusercontent.com');
+$client->setClientId('693439287375-a18r32aq9d6siapg3l5jfth0ijceb7kt.apps.googleusercontent.com');
 // Enter your Client Secrect
-$client->setClientSecret('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');
+$client->setClientSecret('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');
 // Enter the Redirect URL
 $client->setRedirectUri('http://localhost/backEnd/uf1/Practiques/Backend/Pt06_Angel_Tarensi/controlador/google-login-php/login.php');
 
