@@ -203,3 +203,26 @@ body{
 	border-radius: 2px;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+.centrar{
+	text-align: center;
+}
+
+.imgProfile{
+	position: absolute;
+}
+
+.textProfile{
+	position: absolute;
+	margin-left: 15%;
+}
+
+.eliminarCompte{
+	color: red;
+}
+
+.canviImg{
+	position: absolute;
+	margin-top: 12.5%;
+	margin-left: 2.5%;
+}

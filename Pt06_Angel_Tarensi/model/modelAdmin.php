@@ -49,10 +49,10 @@ function mostrarArticlesUsuari(){
         foreach ($resultats as $article){ ?>
             <li><?php echo $article['id'] . '.-    ' ?> <label><?php echo $article['article'] ?></label>    
                     <button type="submit" name="afegir" id="afegir">
-                        <img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php if(isset($_POST['afegir']))header('Location: Marticles.view.php'); ?>">
+                        <img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php //Modificar agafan el id del article, el portara a un altre pàgina?>">
                     </button>
                     <button type="submit" name="eliminar" id="eliminar">
-                        <img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
+                        <img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php //Eliminar article o Portar-lo a un altre pàgina i eliminar per id?>">
                     </button>
             </li>
         <?php }

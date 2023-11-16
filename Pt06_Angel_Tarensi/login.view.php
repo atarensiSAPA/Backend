@@ -40,7 +40,7 @@ if(isset($_SESSION['email'])){
             <button type="button" value="register" onclick="window.location.href='./register.view.php'">Registrar-se</button>
 		
             <br>
-            <button type="button" value="Articles" onclick="window.location.href='./index.php'">Articles</button>
+            <button type="button" value="Tornar" onclick="window.location.href='./index.php'">Tornar</button>
             <button type="button" value="recuperarP" onclick="window.location.href='./recuperacioP.view.php'">Recuperar Password</button>
             <div>
                 <div>

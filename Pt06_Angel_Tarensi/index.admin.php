@@ -35,6 +35,7 @@ require_once 'controlador/GOOGLE-LOGIN-PHP/login.php';
 			</section>
 		</form>
 		<form method="post" class="botonesAD">
+			<button type="button" name="profile" onclick="window.location.href='./perfilUsuari.php'" class="botonTS">Perfil</button>
 			<button type="submit" name="close" onclick="<?php tancarSessio(); ?>" class="botonTS">Tancar sessió</button>
 		</form>
 		<form method="post">
@@ -46,9 +47,9 @@ require_once 'controlador/GOOGLE-LOGIN-PHP/login.php';
 			</section>
 		</form>
 		<form method="post">
-			<br><input type="text" placeholder="Posar un article" name="articleUser" id="articleUser"/>
+			<br><label>Donar-li click per inserir un article -></label>
 			<button type="submit" name="afegir" id="afegir">
-				<img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
+				<img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php if(isset($_POST['afegir'])){header('Location: ./Aarticles.view.php');} ?>">
 			</button>
 		</form>
 	</div>
