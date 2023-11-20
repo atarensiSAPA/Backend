@@ -24,7 +24,7 @@
                     <label for="nouArticle">Descprició</label>
                     <textarea class="form-control" name="nouArticle" placeholder="Descipció del article" required></textarea>
                 </div>
-                <button type="submit" name="afegir">Modificar</button>
+                <button type="submit" name="modificar">Modificar</button>
                 <button type="button" name="tornar" onclick="window.location.href='./index.admin.php'">Tornar</button>
             </form>
             <?php

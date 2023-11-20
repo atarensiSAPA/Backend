@@ -1,5 +1,6 @@
 <?php
 require_once 'model/connexio.php';
+require_once 'controlador/controladorAdmin.php';
 
 function getUsername(){
     $conn = connexio();
@@ -11,12 +12,10 @@ function getUsername(){
     ));
     $resultat = $sql->fetch();
     $username = $resultat['username'];
-    echo $username;
-    echo $email;
     if($username == ""){
-        return $email;
+        echo $email;
     }else{
-        return $username;
+        echo $username;
     }
 }
 

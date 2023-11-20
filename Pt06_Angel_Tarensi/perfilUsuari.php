@@ -4,7 +4,7 @@ require_once 'model/MperfilUsuari.php';
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Perfil de <?php //getUsername();?></title>
+        <title>Perfil de <?php getUsername();?></title>
         <!--Boostrap-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <!--CSS-->
@@ -16,10 +16,11 @@ require_once 'model/MperfilUsuari.php';
             <img src="imatges/profilePic.jpg" alt="default" width="250px" height="250px" class="imgProfile">
             <div class="textProfile">
                 <h3>NOM D'USUARI</h3>
-                <p><?php //getUsername();?></p>
-                <a href="">Editar nom d'usuari</a><br>
-                <a href="">Canviar contrasenya</a><br>
-                <a href="" class="eliminarCompte">Eliminar compte</a>
+                <h5><?php getUsername();?></h5>
+                <a href="./canviarNom.view.php">Editar nom d'usuari</a><br>
+                <a href="./canviarPass.view.php">Canviar contrasenya</a><br>
+                <a href="" class="eliminarCompte">Eliminar compte</a><br><br>
+                <button type="button" name="tornar" onclick="window.location.href='./index.admin.php'">Tornar</button>
             </div>
             <a href="" class="canviImg">Canviar la imatge de perfil </a>
         </div>
