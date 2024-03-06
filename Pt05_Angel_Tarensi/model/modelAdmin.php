@@ -47,13 +47,9 @@ function mostrarArticlesUsuari(){
         $resultats = $sql->fetchAll();
         //Els printo a una llistat
         foreach ($resultats as $article){ ?>
-            <li><?php echo $article['id'] . '.-    ' ?> <input type="text" name="article" id="article" value="<?php echo $article['article'] ?>">
-                    <button type="submit" name="afegir" id="afegir">
-                        <img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
-                    </button>
-                    <button type="submit" name="eliminar" id="eliminar">
-                        <img src="imatges/eliminar.jpg" alt="editar" width="43px" height="43px" onclick="<?php eliminarArticleUser() ?>">
-                    </button>
+            <li><?php echo $article['id'] . '.-    ' ?> <?php echo $article['article'] ?>
+                    <button type="button" name="modificar" id="modificar" onclick="window.location.href='../modificarArticle.php?'">Modificar Article</button>
+                    <button type="submit" name="eliminar" id="eliminar" onclick="<?php eliminarArticleUser(); ?>">Eliminar Article</button>
             </li>
         <?php }
     }catch(PDOException $e){
@@ -87,10 +83,10 @@ function mostrarArticlesUsuari(){
                 $connexio = connexio();
                 $id = idUsuari();
                 $article = $_POST['articleUser']?? "";
-                $sql = $connexio->prepare("INSERT INTO articles (article, id_usuari) VALUES (?, ?)");
+                $sql = $connexio->prepare("INSERT INTO articles (id_usuari, article) VALUES (?, ?)");
                 $sql->execute(array(
-                    $article,
                     $id,
+                    $article,
                 ));
                 header('Location: index.admin.php');
             }catch(PDOException $e){
@@ -126,6 +122,31 @@ function mostrarArticlesUsuari(){
 
                 $sql = $connexio->prepare("DELETE FROM articles WHERE id = ? AND id_usuari = ?");
                 $sql->execute(array(
+                    $id_article['id'],
+                    $id_user,
+                ));
+                header('Location: index.admin.php');
+            }catch(PDOException $e){
+                echo $e;
+                echo "\no Error: No s'ha pogut connectar amb la base de dades!!" . "<br />";
+                die();
+            }
+        }
+    }
+    function modificarArticleUser(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            try{
+                $connexio = connexio();
+                $id_user = idUsuari();
+                $article = $_POST['article']?? "";
+                $id_article = $connexio->prepare('SELECT id FROM articles WHERE article = ?');
+                $id_article->execute(array(
+                    $article,
+                ));
+                $id_article = $id_article->fetch();
+                $sql = $connexio->prepare("UPDATE articles SET article = ? WHERE id = ? AND id_usuari = ?");
+                $sql->execute(array(
+                    $article,
                     $id_article['id'],
                     $id_user,
                 ));

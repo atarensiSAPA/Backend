@@ -45,12 +45,8 @@ require_once 'controlador/GOOGLE-LOGIN-PHP/login.php';
 					</ul>
 			</section>
 		</form>
-		<form method="post">
-			<br><input type="text" placeholder="Posar un article" name="articleUser" id="articleUser"/>
-			<button type="submit" name="afegir" id="afegir">
-				<img src="imatges/afegir.png" alt="afegir" width="35px" height="35px" onclick="<?php afegirArticleUser(); ?>">
-			</button>
-		</form>
+			<br>
+			<button type="button" name="afegir" id="afegir" onclick="window.location.href='afegirArticle.php'">Afegir article</button>
 	</div>
 </body>
 </html>
