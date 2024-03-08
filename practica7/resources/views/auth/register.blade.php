@@ -2,6 +2,8 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <h1 style="color: white; text-align: center;">REGISTER</h1>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -47,6 +49,8 @@
             <x-primary-button class="ms-4">
                 {{ __('Register') }}
             </x-primary-button>
+            &nbsp;&nbsp;
+            <button type="button" onclick="window.location.href='{{ route('login') }}'" style="width: 100px; height: 35px; background-color: white; border-radius: 5px;">Anar log-in</button>
         </div>
     </form>
 </x-guest-layout>

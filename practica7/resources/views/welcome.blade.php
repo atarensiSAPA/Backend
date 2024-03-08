@@ -236,7 +236,6 @@
             @endif
             
             <form method="get">
-
                 <h1>Articles</h1>
                 <p>Numero de pàgines:</p>
                 <select name="nArticles" onchange="this.form.submit()">
