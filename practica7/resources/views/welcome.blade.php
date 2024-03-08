@@ -248,14 +248,17 @@
                 </select>
                 <section class="articles">
                     <ul>
-                        <!-- Mostrar los artículos -->
-                        {{-- @php consultaArticles(); @endphp --}}
+                        @foreach($articles as $article)
+                        <li>
+                            {{ $article->id }}
+                            {{ $article->article }}
+                        </li>
+                        @endforeach
                     </ul>
                 </section>
         
                 <section class="paginacio">
                     <!-- Mostrar los botones de la paginación -->
-                    {{-- @php mostrarPagines(); @endphp --}}
                 </section>
             </form>
 

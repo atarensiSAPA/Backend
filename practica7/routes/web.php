@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\articlesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+//Enviar a la vista articles los datos de la tabla articles
+Route::get('/', [articlesController::class, 'mostrarC']);
 
 require __DIR__.'/auth.php';
