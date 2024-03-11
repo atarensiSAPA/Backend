@@ -7,9 +7,14 @@ use App\Models\articlesModel;
 
 class articlesController extends Controller
 {
-    public function mostrarC(){
-        //llamar a la funcion mostrarArticles del modelo y enviar los datos a la vista
-        $data = articlesModel::paginate(5);   
+    public function mostrarC(Request $request){
+        $perPage = $request->input('nArticles', 5);
+        $data = articlesModel::paginate($perPage);
+        
         return view('welcome', ['articles' => $data]);
+    }
+
+    public function mostrarArticlesUser(Request $request){
+        
     }
 }

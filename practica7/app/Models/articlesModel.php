@@ -9,4 +9,6 @@ class articlesModel extends Model
 {
     use HasFactory;
     public $table = 'articles';
+
+    public $fillable = ['article', 'id_usuari'];
 }
