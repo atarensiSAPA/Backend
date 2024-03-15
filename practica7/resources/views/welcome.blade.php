@@ -297,15 +297,12 @@
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
+
                         <button type="button"  onclick="window.location.href='{{ route('login') }}'" class="botonesAD">Log in</button>
                         
                         @if (Route::has('register'))
                             <button type="button" onclick="window.location.href='{{ route('register') }}'" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</button>
                         @endif
-                    @endauth
                 </div>
             @endif
 
@@ -313,29 +310,16 @@
             <form  method="GET">
                 <h1>Articles</h1>
                 <p>Numero de pàgines:</p>
-                <select name="nArticles" onchange="this.form.submit()">
-                    <option value="5" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 5 ? 'selected' : '' }}>5</option>
-                    <option value="10" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 10 ? 'selected' : '' }}>10</option>
-                    <option value="15" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 15 ? 'selected' : '' }}>15</option>
-                    <option value="30" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 30 ? 'selected' : '' }}>30</option>
-                    <option value="50" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 50 ? 'selected' : '' }}>50</option>
-                    <option value="100" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 100 ? 'selected' : '' }}>100</option>
+                <select name="numArt" id="numArt" onchange="this.form.submit()">
+                    <option value="5" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 5 ? 'selected' : '' }}>5</option>
+                    <option value="10" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 10 ? 'selected' : '' }}>10</option>
+                    <option value="15" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 15 ? 'selected' : '' }}>15</option>
+                    <option value="30" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 30 ? 'selected' : '' }}>30</option>
+                    <option value="50" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 50 ? 'selected' : '' }}>50</option>
+                    <option value="100" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 100 ? 'selected' : '' }}>100</option>
                 </select>
             </form>
-                <section class="articles">
-                    <ul>
-                        @foreach($articles as $article)
-                        <li>
-                            {{ $article->id }}
-                            {{ $article->article }}
-                        </li>
-                        @endforeach
-                    </ul>
-                </section>
-                <div class="pagination">
-                    <!-- Mostrar los botones de la paginación -->
-                    {{ $articles->links() }}
-                </div>
+                @extends('layouts.mostrarArticlesLay')
             </div>
         </div>
     </body>

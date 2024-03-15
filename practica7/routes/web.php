@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
+//trucar a las vistas y controladores
+Route::get('/', [articlesController::class, 'mostrarC'], function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', [articlesController::class, 'mostrarArticlesUser'], function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -28,10 +28,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-//Enviar a la vista articles los datos de la tabla articles
-//llamar a la funcion mostrarC del controlador articlesController minetras se le pasa el parametro nArticles del GET
-
-Route::get('/', [articlesController::class, 'mostrarC']);
-Route::get('/dashboard', [articlesController::class, 'mostrarArticlesUser']);
 
 require __DIR__.'/auth.php';

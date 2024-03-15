@@ -83,37 +83,20 @@
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <!--Hacer que el action apunte a articlesController.php-->
-                    <form  method="GET">
-                        <h1>Articles</h1>
-                        <p>Numero de pàgines:</p>
-                        <select name="nArticles" onchange="this.form.submit()">
-                            <option value="5" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 5 ? 'selected' : '' }}>5</option>
-                            <option value="10" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 10 ? 'selected' : '' }}>10</option>
-                            <option value="15" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 15 ? 'selected' : '' }}>15</option>
-                            <option value="30" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 30 ? 'selected' : '' }}>30</option>
-                            <option value="50" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 50 ? 'selected' : '' }}>50</option>
-                            <option value="100" {{ isset($_GET["nArticles"]) && $_GET["nArticles"] == 100 ? 'selected' : '' }}>100</option>
-                        </select>
-                    </form>
-                    <section class="articles">
-                        <ul>
-                            @foreach($articles as $article)
-                            <li>
-                                {{ $article->id }}
-                                {{ $article->article }}
-                            </li>
-                            @endforeach
-                        </ul>
-                    </section>
-                    <div class="pagination">
-                        <!-- Mostrar los botones de la paginación -->
-                        {{ $articles->links() }}
-                    </div>
-                </div>
-            </div>
+            <!--Hacer que el action apunte a articlesController.php-->
+            <form  method="GET">
+                <h1>Articles</h1>
+                <p>Numero de pàgines:</p>
+                <select name="numArt" id="numArt" onchange="this.form.submit()">
+                    <option value="5" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 5 ? 'selected' : '' }}>5</option>
+                    <option value="10" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 10 ? 'selected' : '' }}>10</option>
+                    <option value="15" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 15 ? 'selected' : '' }}>15</option>
+                    <option value="30" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 30 ? 'selected' : '' }}>30</option>
+                    <option value="50" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 50 ? 'selected' : '' }}>50</option>
+                    <option value="100" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 100 ? 'selected' : '' }}>100</option>
+                </select>
+            </form>
+            @extends('layouts.mostrarArticlesLay')
         </div>
     </div>
 </x-app-layout>
