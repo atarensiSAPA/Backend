@@ -49,8 +49,6 @@
             <x-primary-button class="ms-4">
                 {{ __('Register') }}
             </x-primary-button>
-            &nbsp;&nbsp;
-            <button type="button" onclick="window.location.href='{{ route('login') }}'" style="width: 100px; height: 35px; background-color: white; border-radius: 5px;">Anar log-in</button>
         </div>
     </form>
 </x-guest-layout>

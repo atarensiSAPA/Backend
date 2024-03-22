@@ -96,7 +96,7 @@
                     <option value="100" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 100 ? 'selected' : '' }}>100</option>
                 </select>
             </form>
-            @extends('layouts.mostrarArticlesLay')
+            @extends('layouts.mostrarArticlesUser')
         </div>
     </div>
 </x-app-layout>

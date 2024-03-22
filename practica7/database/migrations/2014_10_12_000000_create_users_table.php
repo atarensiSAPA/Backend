@@ -23,9 +23,10 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('users')->insert(
+        DB::table('users')->insert([
             ['name' => 'admin', 'email' => 'admin@sapalomera.cat', 'password' => bcrypt('admin'), 'email_verified_at' => now(), 'created_at' => now(), 'updated_at' => now()],
-        );
+            ['name' => 'angel', 'email' => 'a.tarensi2@sapalomera.cat', 'password' => bcrypt('angel'), 'email_verified_at' => now(), 'created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 
     /**
@@ -33,6 +34,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropiForeign('articles_id_usuari_foreign');
+        });
         Schema::dropIfExists('users');
     }
 };
