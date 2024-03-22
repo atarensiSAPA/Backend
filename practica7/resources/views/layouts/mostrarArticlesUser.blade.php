@@ -7,11 +7,11 @@
             {{ $article->id }}
             {{ $article->article }}
             <!--Poner botones de modificar y eliminar con sus respectivos ids-->
-            <button class="btn btn-primary" onclick="location.href='{{ route('articles.edit', $article->id) }}'">Modificar</button><br>
+            <button class="btn btn-primary" onclick="location.href='{{ route('articles.edit', $article->id) }}'" style="border: 1px solid black; background-color:rgb(0, 89, 255); color:white">Modificar</button><br>
             <form class="deleteForm" action="{{ route('articles.destroy', $article->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger" type="submit">Eliminar</button>
+                <button class="btn btn-danger" type="submit" style="background-color:red; color:white; border:1px solid black">Eliminar</button>
             </form>            
             
             <script>

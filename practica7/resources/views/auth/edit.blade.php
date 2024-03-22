@@ -13,6 +13,8 @@
         <label for="article">Nom article</label>
         <input type="text" name="article" value="{{ $article->article }}">
         <button type="submit">Modificar</button>
+        <br>
+        <a href="../dashboard">Tornar</a>
     </form>
 </body>
 </html>

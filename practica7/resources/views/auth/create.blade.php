@@ -13,5 +13,7 @@
         <input type="text" name="article">
         <button type="submit">Afegir</button>
     </form>
+    <br>
+    <a href="../dashboard">Tornar</a>
 </body>
 </html>
