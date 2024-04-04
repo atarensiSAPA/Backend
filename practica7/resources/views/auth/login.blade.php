@@ -47,7 +47,19 @@
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
-
         </div>
+        <div class="flex justify-center mt-4">
+            <!--Mostrar el recaptcha después de 3 intentos-->
+            @if (session('login_attempts', 0) >= 3)
+                {!! NoCaptcha::display() !!}
+            @endif
+        </div>
+        @if ($errors->any())
+            <ul style="color: red; text-align: center;">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
     </form>
 </x-guest-layout>

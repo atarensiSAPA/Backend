@@ -1,11 +1,13 @@
 <section class="articles" style="position: relative">
     <ul>
-        @foreach($articles as $article)
+        @forelse($articles as $article)
         <li>
             {{ $article->id }}
             {{ $article->article }}
         </li>
-        @endforeach
+        @empty
+            <p style="display: flex; justify-content: center; align-items: center; color:red;">No hay articulos</p>
+        @endforelse
     </ul>
 </section><br>
 <div class="pagination">
