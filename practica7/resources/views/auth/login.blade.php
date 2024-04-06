@@ -10,7 +10,6 @@
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
@@ -54,12 +53,13 @@
                 {!! NoCaptcha::display() !!}
             @endif
         </div>
+        <!--Mostrar tots els errors-->
         @if ($errors->any())
             <ul style="color: red; text-align: center;">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
-            </ul>
+            </ul>   
         @endif
     </form>
 </x-guest-layout>

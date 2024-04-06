@@ -25,6 +25,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        //Mostrar errors i comprovar si s'ha fet login 3 cops malament per mostrar el captcha
         if ($request->session()->get('login_attempts', 0) >= 3) {
             $request->validate([
                 'g-recaptcha-response' => 'required|captcha',
