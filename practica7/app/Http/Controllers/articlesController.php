@@ -8,6 +8,7 @@ use Illuminate\Pagination\Paginator;
 
 class articlesController extends Controller
 {
+    //Función para mostrar los artículos
     public function mostrarC(Request $request){
         Paginator::useBootstrapFour();
 
@@ -18,6 +19,7 @@ class articlesController extends Controller
         return view('welcome',  ['articles' => $data, 'numArt' => $perPage]);
     }
 
+    //Función para mostrar los artículos de un usuario
     public function mostrarArticlesUser(Request $request){
         Paginator::useBootstrapFour();
 
@@ -29,17 +31,20 @@ class articlesController extends Controller
         return view('dashboard',  ['articles' => $data, 'numArt' => $perPage]);
     }
 
+    //Función para destruir un artículo
     public function destroy($id){
         $article = articles::find($id);
         $article->delete();
         return redirect('/dashboard');
     }
 
+    //Función para enviar "petición" de edición de artículo
     public function edit($id){
         $article = articles::find($id);
         return view('/auth/edit',  ['article' => $article]);
     }
 
+    //Función para editar un artículo
     public function update(Request $request, $id){
         $article = articles::find($id);
         $article->article = $request->input('article');
@@ -47,10 +52,12 @@ class articlesController extends Controller
         return redirect('/dashboard');
     }
 
+    //Función para enviar "petición" de creación de artículo
     public function create(){
         return view('/auth/create');
     }
 
+    //Función para crear un artículo
     public function store(Request $request){
         $article = new articles();
         $article->article = $request->input('article');

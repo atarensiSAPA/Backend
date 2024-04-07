@@ -137,6 +137,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // Drop table if exists i la foreign key
         if (Schema::hasTable('articles')) {
             Schema::table('articles', function (Blueprint $table) {
                 if (Schema::hasColumn('articles', 'id_usuari')) {

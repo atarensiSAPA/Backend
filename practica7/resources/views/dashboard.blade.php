@@ -83,7 +83,6 @@
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <!--Hacer que el action apunte a articlesController.php-->
             <form  method="GET">
                 <h1>Articles</h1>
                 <p>Numero de pàgines:</p>
@@ -96,6 +95,7 @@
                     <option value="100" {{ isset($_GET["numArt"]) && $_GET["numArt"] == 100 ? 'selected' : '' }}>100</option>
                 </select>
             </form>
+            <!--Truquem al layout per printar el articles-->
             @extends('layouts.mostrarArticlesUser')
         </div>
     </div>
