@@ -137,6 +137,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        if (Schema::hasTable('articles')) {
+            Schema::table('articles', function (Blueprint $table) {
+                if (Schema::hasColumn('articles', 'id_usuari')) {
+                    $table->dropForeign('articles_id_usuari_foreign');
+                }
+            });
+    
+            Schema::dropIfExists('articles');
+        }
     }
 };

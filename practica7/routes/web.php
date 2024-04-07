@@ -40,4 +40,32 @@ Route::delete('/articles/{id}', [articlesController::class, 'destroy'])->name('a
 Route::get('/articles/{id}', [articlesController::class, 'edit'])->name('articles.edit');
 Route::patch('/articles/{id}', [articlesController::class, 'update'])->name('articles.update');
 
+//Google OAUTH
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+ 
+Route::get('/login-google', function () {
+    return Socialite::driver('google')->redirect();
+});
+ 
+Route::get('/google-callback', function () {
+    $user = Socialite::driver('google')->user();
+ 
+    $userExists = User::where('google_id', $user->id)->first();
+
+    if($userExists){
+        Auth::login($userExists);
+    }else{
+        $newUser = User::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'google_id' => $user->id,
+        ]);
+        Auth::login($newUser);
+    }
+
+    return redirect('/dashboard');
+});
+
 require __DIR__.'/auth.php';
