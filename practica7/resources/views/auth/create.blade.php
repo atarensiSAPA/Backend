@@ -12,8 +12,8 @@
         <label for="article">Nom artículo</label>
         <input type="text" name="article">
         <button type="submit">Afegir</button>
+        <br>
+        <a href="../dashboard">Tornar</a>
     </form>
-    <br>
-    <a href="../dashboard">Tornar</a>
 </body>
 </html>
